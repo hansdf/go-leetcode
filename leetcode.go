@@ -4,7 +4,6 @@ import "fmt"
 
 func main() {
 	twoSum([]int{2, 15, 7, 19, 22, 8}, 15)
-	fizzbuzz(35)
 }
 
 /*
@@ -13,14 +12,12 @@ You may assume that each input would have exactly one solution, and you may not 
 You can return the answer in any order.
 */
 func twoSum(nums []int, target int) []int { // takes an array of int and an int as parameters, returns an array of ints as results
-	fmt.Println("hi")
 	result := []int{}
 	for i := 0; i < len(nums); i++ {
 		for j := 1; j < len(nums); j++ {
 			if nums[i]+nums[j] == target {
-				fmt.Print("found match. The two numbers on the list that match are ")
-				fmt.Print([]int{nums[i], nums[j]})
-				result = []int{nums[i], nums[j]}
+				fmt.Printf("Found match. The two numbers on the list that match are %v, located in indexes %v", []int{nums[i], nums[j]}, []int{i, j})
+				result = []int{i, j}
 				return result
 			}
 		}
