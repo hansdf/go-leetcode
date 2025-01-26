@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	twoSum([]int{2, 15, 7, 19, 22, 8}, 15)
+	// twoSum([]int{2, 15, 7, 19, 22, 8}, 15)
+	strStr("sadbutsad", "sad") //haystack = "sadbutsad", needle = "sad"
 }
 
 /*
@@ -15,8 +16,8 @@ func twoSum(nums []int, target int) []int { // takes an array of int and an int 
 	result := []int{}
 	for i := 0; i < len(nums); i++ {
 		for j := 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				fmt.Printf("Found match. The two numbers on the list that match are %v, located in indexes %v", []int{nums[i], nums[j]}, []int{i, j})
+			if nums[i] != nums[j] && nums[i]+nums[j] == target {
+				fmt.Printf("Found match. The two numbers on the list that match up to target %v are %v, located in indexes %v", target, []int{nums[i], nums[j]}, []int{i, j})
 				result = []int{i, j}
 				return result
 			}
@@ -43,4 +44,22 @@ func fizzbuzz(max int) {
 			fmt.Println(i)
 		}
 	}
+}
+
+/*
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+haystack and needle consist of only lowercase English characters.
+*/
+func strStr(haystack string, needle string) int {
+
+	haystackLen := len(haystack)
+	needleLen := len(needle)
+
+	for i := 0; i <= haystackLen; i++ {
+		if haystack[i:i+needleLen] == needle {
+			fmt.Printf("Index for needle found at %v", i)
+			return i // index
+		}
+	}
+	return -1
 }
