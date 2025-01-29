@@ -4,7 +4,8 @@ import "fmt"
 
 func main() {
 	// twoSum([]int{2, 15, 7, 19, 22, 8}, 15)
-	strStr("sadbutsad", "sad") //haystack = "sadbutsad", needle = "sad"
+	// strStr("sadbutsad", "sad") //haystack = "sadbutsad", needle = "sad"
+	singleNumber([]int{2, 22, 15, 15, 8, 7, 19, 19, 22, 2, 8})
 }
 
 /*
@@ -62,4 +63,25 @@ func strStr(haystack string, needle string) int {
 		}
 	}
 	return -1
+}
+
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// Each element in the array appears twice except for one element which appears only once.
+func singleNumber(nums []int) int {
+	for i := 0; i < len(nums); i++ {
+		counter := 0
+
+		for j := 0; j < len(nums); j++ {
+			if nums[i] == nums[j] {
+				counter++
+			}
+		}
+
+		if counter == 1 {
+			fmt.Printf("Found unique item in list: %v", nums[i])
+			return nums[i]
+		}
+	}
+
+	return -1 // Return -1 if no unique number is found
 }
